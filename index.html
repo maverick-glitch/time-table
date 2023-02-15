@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Card</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.google.com/specimen/Inter");
+      * {
+        box-sizing: border-box;
+        font-family:  serif;
+      }
+      th {
+        padding: 3px;
+      }
+      td {
+        padding: 5px 9px;
+      }
+      /* THE ENVIRONMENT */
+      main {
+        margin: auto;
+        height: 70vh;
+      }
+      /* FIRST TABLE */
+      .first {
+        border: 0;
+        width: 100%;
+      }
+      .first span {
+        margin: 5px auto;
+        font-size: 17px;
+        display: block;
+      }
+      /* FIRST TABLE CELLS */
+      #one b {
+        margin-left: 90px;
+      }
+
+      #two b {
+        margin-left: 25px;
+      }
+
+      #three b {
+        margin-left: 104px;
+      }
+      #four b {
+        margin-left: 110px;
+      }
+      #five b {
+        margin-left: 90px;
+      }
+      #six b {
+        margin-left: 30px;
+      }
+      #seven b {
+        margin-left: 90px;
+      }
+      #eight b {
+        margin-left: 80px;
+      }
+      #nine b {
+        margin-left: 118px;
+      }
+      #ten b {
+        margin-left: 95px;
+      }
+      #eleven b {
+        margin-left: 26px;
+      }
+      #twelve b {
+        margin-left: 90px;
+      }
+      #thirteen b {
+        margin-left: 38px;
+      }
+      #fourteen b {
+        margin-left: 119px;
+      }
+      #fifteen b {
+        margin-left: 34px;
+      }
+      #sixteen b {
+        margin-left: 109px;
+      }
+      /* ADDRESS SECTION */
+      .address {
+        font-size: 17px;
+        align-self: center;
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        padding: 0;
+        margin: 0;
+      }
+      
+
+      .address h1 {
+        font-size: 20px;
+        line-height: 5px;
+      }
+      .address span {
+        display: block;
+      }
+      .address h1,
+      .address a {
+        color: crimson;
+        text-decoration: none;
+      }
+      
+      .logo img {
+        width: 140px;
+        height: 130px;
+      }
+      
+      table {
+        border-collapse: collapse;
+      }
+      
+      .heading h1 {
+        font-size: 20px;
+        text-align: center;
+        line-height: 4px;
+      }
+      .heading{
+        margin: 0;
+        padding: 0;
+      }
+
+      /* TABLE HOUSING EVERYTHING */
+
+      .table {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      thead {
+        background-color: crimson;
+        color: white;
+      }
+      th{
+        font-family: Inter;
+      }
+      /* RESULT TABLE */
+      .result {
+        width: 100%;
+      }
+      
+      .result td {
+        font-size: 15px;
+        padding: 6px;
+      }
+      
+      .result th {
+        font-size: 25px;
+        padding: 25px 2px;
+      }
+
+      .result th:first-child {
+        font-size: 22px;
+        padding: 3px;
+      }
+      .result th:not(:first-child) {
+        transform: rotate(90deg);
+        text-align: left;
+        font-size: 15.5px;
+        font-weight: bold;
+        padding: 34px 2px;
+        color: white;
+      }
+
+      .result #small{
+        padding: 0px;
+        padding-left: 0.5px;
+        
+      }
+
+      .result #long{
+        padding: 6px  2px;
+      }
+      .result #attend{
+        padding-left: 3px;
+
+      }
+      .result #middle{
+        padding: 3px 2px;
+      } 
+
+      
+      .result,
+       .combined {
+         width: 100%;
+        }
+        /* All the remaining tables container */
+        .combined{
+          border: .5px solid black; 
+        }
+        .combined td {
+          padding: 2px;
+        
+        }
+
+      .first table,
+      .first th,
+      .first td,
+      .result table,
+      .result th,
+      .result td,
+      .traits table,
+      .traits th,
+      .traits td,
+      .traits2 table,
+      .traits2 th,
+      .traits2 td,
+      .adviser table,
+      .adviser th,
+      .adviser td,
+      .motor table,
+      .motor th,
+      .motor td,
+      .blank table,
+      .blank th,
+      .blank td,
+      .range table,
+      .range th,
+      .range td {
+        border: 1px solid black;
+      }
+      .result tbody tr:nth-child(odd),
+      .traits tr:nth-child(even),
+      .traits2 tr:nth-child(even),
+      .motor tr:nth-child(even),
+      .range tr:nth-child(even),
+      .blank tr:nth-child(even),
+      .adviser tr:nth-child(odd) {
+        background-color: lightgrey;
+      }
+      
+
+      .motor {
+        width: 100%;
+        height: 100%;
+      }
+      .motor td{
+        padding: 5px;
+      }
+      .range {
+        width: 100%;
+      }
+      .range td {
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      .range td:not(:last-child) {
+        text-align: center;
+      }
+
+      .traits {
+        width: 100%;
+      }
+      .traits td {
+        padding: 7px auto;
+      }
+      .traits2 {
+        width: 100%;
+      }
+      
+      .traits2 td {
+        font-size: 15px;
+      } 
+      
+      .one {
+        display: flex;
+      }
+      .left {
+        display: flex;
+        width: 30%;
+        height: fit-content;
+      }
+      .middle{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: 30%;
+        height: fit-content;
+      }
+      .right{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        height: fit-content;
+      }
+
+      .adviser table {
+        border: 1px solid black;
+      }
+      
+      .adviser {
+        width: 100%;
+      }
+      .adviser td {
+        font-size: 16px;
+      }
+      .blank {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .blank td{
+        padding: 5px;
+      }
+      .blank .oh {
+        width: 12%;
+      }
+      .adviser .i {
+        width: 25%;
+      }
+      </style>
+    <main>
+      <table class="table">
+        <tr>
+          <td>
+          </td>
+        </tr>
+        <tr >
+          <td>
+            <div class="address">
+              <div class="logo"><img src="./school_logo.jpg" alt="" /></div>
+              <div class="company">
+                <span><h1>THE DEEN PATH MODEL NURSERY AND PRIMARY SCHOOL</h1></span>
+                <span>We Always stand for real Knowledge And Piety</span>
+                <span>address: 48 Ojaya street, Ilorin.</span>
+                <span>phone: 07036109147</span>
+                <a href="abuishadeen1@gmail.com"
+                  >Email: abuishadeen1@gmail.com</a>
+    
+              </div>
+            </div>
+            <div class="heading"><h1>END OF TERM EXAMS</h1></div>
+            <table class="first">
+              <tr>
+                <td>
+                  <span id="one">Session <b>2022/2023/Term-2CU530</b></span>
+                  <span id="two"
+                    >Name of Student <b>Poopola Abdul Wakeel</b></span
+                  >
+                  <span id="three">Class <b>Nursery 2 2</b></span>
+                </td>
+                <td>
+                  <span id="four">Term <b>Term 2</b></span>
+                  <span id="five">Reg. No <b>1143/106741</b></span>
+                  <span id="six"
+                    >Next term begins <b> 9th January, 2023</b></span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span id="seven">position in entire class <b>1st</b></span>
+                  <span id="eight">position in class section <b>1st</b></span>
+                  <span id="nine">Overall total score <b>12</b></span>
+                  <span id="ten">Student average score <b>6</b></span>
+                  <span id="eleven"
+                    >Highest average in class section <b>6</b></span
+                  >
+                </td>
+                <td>
+                  <span id="twelve">No. of students in class <b>33</b></span>
+                  <span id="thirteen"
+                    >No. of students in class section <b>33</b></span
+                  >
+                  <span id="fourteen">Class section score <b>0.18</b></span>
+                  <span id="fifteen"
+                    >Lowest average in class section <b>0</b></span
+                  >
+                  <span id="sixteen">Overall performance <b>N/R</b></span>
+                </td>
+              </tr>
+            </table>
+            <table class="result">
+              <thead>
+                <tr>
+                  <th>SUBJECT</th>
+                  <th id="small"><span>TEST1 (20)</span></th>
+                  <th id="small">TEST2 (20)</th>
+                  <th id="small">EXAM (60)</th>
+                  <th id="attend">ATTENDANCE (50)</th>
+                  <th>REGULAR (25)</th>
+                  <th>TOTAL</th>
+                  <th>GRADE</th>
+                  <th>SUBJECT POSITON</th>
+                  <th>CLASS AVERAGE</th>
+                  <th id="middle">WEIGHTED SCORE</th>
+                  <th id="long">HIGHEST  IN SUBJECT</th>
+                  <th id="long">LOWEST  IN SUBJECT</th>
+                  <th>REMARKS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mathematics</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>English</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Yoruba</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Agric</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Physics</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Inter-science</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Vocational studies</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>taowheed</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Arabic</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Home economics</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Bussiness studies</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Social-studies</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Civic education</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                <tr>
+                  <td>Drawing</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Handwriting</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Verbal reasoning</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="combined">
+              <tr class="one">
+                <td class="left">
+                  <table class="traits">
+                    <thead>
+                      <tr>
+                        <th>AFFECTIVE TRAITS</th>
+                        <th>RATING</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>Punctuality</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Mental Alertness</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Behavior</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Reliability</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Attentiveness</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Respect</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Neatness</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Politeness</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Honesty</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Relationship with staff</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Relationship with students</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Attitude to school</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Self-control</td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="middle">
+                  <table class="traits2">
+                    <thead>
+                      <tr>
+                        <th>AFFECTIVE TRAITS</th>
+                        <th>RATING</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>Spirit of teamwork </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Innitiatives</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Organizational ability</td>
+                      <td></td>
+                    </tr>
+                  </table>
+                  <table class="motor">
+                    <thead>
+                      <tr>
+                        <th>PSYCHOMOTOR SKILLS</th>
+                        <th>RATING</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>Handwriting</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Reading</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Verbal fluency/Diction</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Musical Skills</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Creative arts</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Physical education</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>General reasoning</td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </td>
+                <td class="right">
+                  <table class="range">
+                    <thead>
+                      <tr>
+                        <th>SCORE RANGE</th>
+                        <th>GRADE</th>
+                        <th>GRADE POINT</th>
+                        <th>MEANING</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>0% - 30%</td>
+                      <td>F</td>
+                      <td></td>
+                      <td>Weak</td>
+                    </tr>
+                    <tr>
+                      <td>30% - 40%</td>
+                      <td>E</td>
+                      <td></td>
+                      <td>Fair</td>
+                    </tr>
+                    <tr>
+                      <td>40% - 50%</td>
+                      <td>D</td>
+                      <td></td>
+                      <td>Good</td>
+                    </tr>
+                    <tr>
+                      <td>50% - 60%</td>
+                      <td>C</td>
+                      <td></td>
+                      <td>Very Good</td>
+                    </tr>
+                    <tr>
+                      <td>60% - 70%</td>
+                      <td>B</td>
+                      <td></td>
+                      <td>Excellent</td>
+                    </tr>
+                    <tr>
+                      <td>70% - 100%</td>
+                      <td>A</td>
+                      <td></td>
+                      <td>Excellent</td>
+                    </tr>
+                  </table>
+                  <table class="blank">
+                    <tr>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="oh">5</td>
+                      <td>Maintains an excellent degree of observation</td>
+                    </tr>
+                    <tr>
+                      <td class="oh">4</td>
+                      <td>Maintains high level of observation trait</td>
+                    </tr>
+                    <tr>
+                      <td class="oh">3</td>
+                      <td>Acceptable level of observation trait</td>
+                    </tr>
+                    <tr>
+                      <td class="oh">2</td>
+                      <td>Shows minimal level of observation trait</td>
+                    </tr>
+                    <tr>
+                      <td class="oh">1</td>
+                      <td>Has no regard for observation trait</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table class="adviser">
+                    <tr>
+                      <td class="i"><b>Academic adviser's report</b></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="i"><b>Form master's report</b></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="i"><b>Principal's report</b></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </main>
+  </body>
+</html>
